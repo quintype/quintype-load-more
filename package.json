@@ -1,0 +1,27 @@
+{
+  "name": "quintype-loadmore",
+  "version": "1.0.0",
+  "description": "quintype loadmore functionality for front end apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quintype/quintype-load-more.git"
+  },
+  "keywords": [
+    "Quintype"
+  ],
+  "author": "Quintype <dev-core@quintype.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quintype/quintype-load-more/issues"
+  },
+  "homepage": "https://github.com/quintype/quintype-load-more#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mocha": "^3.1.0",
+    "request": "^2.75.0"
+  }
+}
