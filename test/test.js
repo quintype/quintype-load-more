@@ -1,48 +1,46 @@
-var should = require('chai').should(),
-    scapegoat = require('../index'),
-    escape = scapegoat.escape,
-    unescape = scapegoat.unescape;
+'use strict';
 
-describe('#escape', function() {
-  it('converts & into &amp;', function() {
-    escape('&').should.equal('&amp;');
-  });
+var expect = require('chai').expect;
+var numFormatter = require('../index');
 
-  it('converts " into &quot;', function() {
-    escape('"').should.equal('&quot;');
-  });
+describe('#numFormatter', function() {
+    it('should convert single digits', function() {
+        var result = numFormatter(1);
+        expect(result).to.equal('1');
+    });
 
-  it('converts ' into &#39;', function() {
-    escape(''').should.equal('&#39;');
-  });
+    it('should convert double digits', function() {
+        var result = numFormatter(12);
+        expect(result).to.equal('12');
+    });
 
-  it('converts < into &lt;', function() {
-    escape('<').should.equal('&lt;');
-  });
+    it('should convert triple digits', function() {
+        var result = numFormatter(123);
+        expect(result).to.equal('123');
+    });
 
-  it('converts > into &gt;', function() {
-    escape('>').should.equal('&gt;');
-  });
-});
+    it('should convert 4 digits', function() {
+        var result = numFormatter(1234);
+        expect(result).to.equal('1,234');
+    });
 
-describe('#unescape', function() {
-  it('converts &amp; into &', function() {
-    unescape('&amp;').should.equal('&');
-  });
+    it('should convert 5 digits', function() {
+        var result = numFormatter(12345);
+        expect(result).to.equal('12,345');
+    });
 
-  it('converts &quot; into "', function() {
-    unescape('&quot;').should.equal('"');
-  });
+    it('should convert 6 digits', function() {
+        var result = numFormatter(123456);
+        expect(result).to.equal('123,456');
+    });
 
-  it('converts &#39; into '', function() {
-    unescape('&#39;').should.equal(''');
-  });
+    it('should convert 7 digits', function() {
+        var result = numFormatter(1234567);
+        expect(result).to.equal('1,234,567');
+    });
 
-  it('converts &lt; into <', function() {
-    unescape('&lt;').should.equal('<');
-  });
-
-  it('converts &gt; into >', function() {
-    unescape('&gt;').should.equal('>');
-  });
+    it('should convert 8 digits', function() {
+        var result = numFormatter(12345678);
+        expect(result).to.equal('12,345,678');
+    });
 });
