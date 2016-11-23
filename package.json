@@ -21,7 +21,8 @@
   "homepage": "https://github.com/quintype/quintype-load-more#readme",
   "dependencies": {
     "express": "^4.14.0",
-    "loadash": "0.0.1"
+    "jquery": "^3.1.0",
+    "lodash": "^4.16.3"
   },
   "engines": {
     "node": ">=4.2.4"
